@@ -1,4 +1,8 @@
-//Client Router
+/*
+* Client Router
+* Receive the object from the Ripple stream.
+* This router has a handler depending on the 'type' of object received.
+*/
 
 'use strict';
 
