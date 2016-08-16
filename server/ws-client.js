@@ -14,6 +14,12 @@ var WebSocket = require('ws'),
  */
 Client = function (obj) {
 
+
+    // Adding this so that you dont need 'new' when you require this module
+    if (!(this instanceof Client)) {
+        return new Client(obj);
+    }
+
     try {
         if (!obj.port) throw "Client port not specified";
 

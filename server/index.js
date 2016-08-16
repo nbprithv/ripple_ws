@@ -22,10 +22,11 @@ if (cli.help || (!cli['server-port'] && !cli['client-port'])) {
 }
 
 // Start up a client
-new client({port:cli['client-port']});
+client({port:cli['client-port']});
 
 // Start up the server
-
 server(cli['server-port'], function (app) {
+
+    // This call back is called when a client connects to this server
     app.server.broadcast("Broadcast to all clients");
 });
