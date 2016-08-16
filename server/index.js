@@ -40,6 +40,5 @@ new client({port:cli['client-port']});
 // Start up the server
 
 server(cli['server-port'], function (app) {
-    app.ws.send("From the index");
     app.server.broadcast("Broadcast to all clients");
 });

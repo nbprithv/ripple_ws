@@ -49,7 +49,7 @@ Client.prototype = {
 
         
         this.ws.on('open', function() {
-            console.log('Connected to '+this._host);
+            console.log('Connected to '+self._host);
             self.ws.send('Hello from client');
         });
 

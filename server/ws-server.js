@@ -61,6 +61,7 @@ Server = (function () {
 
             if (!SERVER_INSTANCE) {
                 SERVER_INSTANCE = server.apply(null, [port, cb]);
+                console.log("Started server on port "+port)
             }
             return SERVER_INSTANCE;
         } catch (e) {
