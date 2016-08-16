@@ -1,30 +1,17 @@
 'use strict';
 
-// Web socket server and client.
-// node ws-server.js --port 5000
+/**
+ * Web socket server and client.
+ * Command line script to start up a websocket and client based on parameters passed.
+ * For information run
+ *  node index.js -h
+ */
 
-const commandLineArgs = require('command-line-args');
-const getUsage = require('command-line-usage');
+/**
+ * Defining the command line arguments
+*/
 
-const options = [
-    {name: 'server-port', alias: 's', type: Number, description: 'Start a web socket server listening on this port'},
-    {name: 'client-host', alias: 'k', type: String, defaultOption:'localhost', description: 'Start a web socket client listening to this host. Defaults to localhost'},
-    {name: 'client-port', alias: 'c', type: Number, description: 'Start a web socket client listening to this port'},
-    {name: 'help', alias: 'h', type: Boolean, description: 'Print this help menu'}
-];
-
-const sections = [
-  {
-    header: 'Web socket server and client',
-    content: 'Start up a simple web socket server or client from the command line'
-  },
-  {
-    header: 'Options',
-    optionList: options
-  }
-];
-
-const cli = commandLineArgs(options);
+const cli = require(__dirname+"/cli-config.js");
 
 var server = require(__dirname+"/ws-server.js"),
     client = require(__dirname+"/ws-client.js");
