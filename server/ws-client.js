@@ -29,7 +29,8 @@ Client = function (obj) {
         /**
          * Private variables
          */
-        this._host = 'ws://'+obj.host+':'+obj.port;
+        this._protocol = obj.secure ? 'wss://' : 'ws://';
+        this._host = this._protocol+obj.host+':'+obj.port;
         this._port = obj.port;
 
         this.connect();
