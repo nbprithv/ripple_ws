@@ -19,7 +19,7 @@ This was tested on node `v4.2.1`
 
 1. Run the client
   ```
-  node client/ws-client.js
+  node ripple_client/ws-client.js
   ```
 
 2. Watch the output stream
