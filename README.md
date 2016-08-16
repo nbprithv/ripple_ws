@@ -1,6 +1,8 @@
 # ripple_ws
 A Simple illustration of a websocket based distributed system
 
+This was tested on node `v4.2.1`
+
 ## Installing
 
 1. Download repo
