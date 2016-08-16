@@ -43,56 +43,58 @@ A Simple illustration of a websocket based distributed system
     type: 'ledgerClosed',
     validated_ledgers: '22583954-23356773' }
     ```
+
 ## Run distributed servers
 
 1. One script exposes both a client and a server with CLI commands
-```
-node server/index.js -h
-
-Web socket server and client
-
-  Start up a simple web socket server or client from the command line
-
-Options
-
-  -s, --server-port number   Start a web socket server listening on this port
-  -k, --client-host string   Start a web socket client listening to this host. Defaults to localhost
-  -c, --client-port number   Start a web socket client listening to this port
-  -h, --help                 Print this help menu
-```
+  ```
+  node server/index.js -h
+  
+  Web socket server and client
+  
+    Start up a simple web socket server or client from the command line
+  
+  Options
+  
+    -s, --server-port number   Start a web socket server listening on this port
+    -k, --client-host string   Start a web socket client listening to this host. Defaults to localhost
+    -c, --client-port number   Start a web socket client listening to this port
+    -h, --help                 Print this help menu
+  ```
 
 2. Start one server on port 3000 and client listening to 5000.
-```
-$ node server/index.js -s 3000 -c 5000
-Started server on port 3000
-Couldn't connect to ws://localhost:5000
-Trying to reconnect in 2 seconds
-Couldn't connect to ws://localhost:5000
-Trying to reconnect in 4 seconds
-```
+  ```
+  $ node server/index.js -s 3000 -c 5000
+  Started server on port 3000
+  Couldn't connect to ws://localhost:5000
+  Trying to reconnect in 2 seconds
+  Couldn't connect to ws://localhost:5000
+  Trying to reconnect in 4 seconds
+  ```
+
 3. Start another server on port 5000 and client listening to 3000.
-```
-$ node server/index.js -s 5000 -c 3000
-Started server on port 5000
-Connected to ws://localhost:3000
-Client received: "Server at 3000 says: Hello"
-Client received: "Broadcast to all clients"
-```
+  ```
+  $ node server/index.js -s 5000 -c 3000
+  Started server on port 5000
+  Connected to ws://localhost:3000
+  Client received: "Server at 3000 says: Hello"
+  Client received: "Broadcast to all clients"
+  ```
 
 4. The first client started in step 2 should also be automatically connected to this server now
-```
-Connected to ws://localhost:5000
-Client received: "Server at 5000 says: Hello"
-Client received: "Broadcast to all clients"
-```
+  ```
+  Connected to ws://localhost:5000
+  Client received: "Server at 5000 says: Hello"
+  Client received: "Broadcast to all clients"
+  ```
 
 5. Spin up another node with just one client
-```
-$ node server/index.js -c 5000
-Server port not specified
-Connected to ws://localhost:5000
-Client received: "Server at 5000 says: Hello"
-Client received: "Broadcast to all clients"
-```
+  ```
+  $ node server/index.js -c 5000
+  Server port not specified
+  Connected to ws://localhost:5000
+  Client received: "Server at 5000 says: Hello"
+  Client received: "Broadcast to all clients"
+  ```
 
 6. Now there are two clients listening to the server running on port 5000. Clients will receive the `Server at 5000 says: Hello` message only once at the time they establish a connection with the server. The `Broadcast to all clients` message will be sent to all clients when a new client connects. This is just to illustrate a 1-1 server/client messaging and broadcast messaging.
