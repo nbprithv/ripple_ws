@@ -7,10 +7,6 @@
  *  node index.js -h
  */
 
-/**
- * Defining the command line arguments
-*/
-
 const cli = require(__dirname+"/cli-config.js");
 
 var server = require(__dirname+"/ws-server.js"),
