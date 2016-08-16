@@ -51,15 +51,16 @@ A Simple illustration of a websocket based distributed system
   node server/index.js -h
   
   Web socket server and client
-  
+
     Start up a simple web socket server or client from the command line
-  
+
   Options
-  
-    -s, --server-port number   Start a web socket server listening on this port
-    -k, --client-host string   Start a web socket client listening to this host. Defaults to localhost
-    -c, --client-port number   Start a web socket client listening to this port
-    -h, --help                 Print this help menu
+
+    -s, --PORT_LISTEN number    Start a web socket server listening on this port
+    -c, --PORT_CONNECT number   Start a web socket client connecting to this port
+    -k, --HOST string           Start a web socket client listening to this host. Defaults to localhost
+    -x, --SECURE                Specify if the server to connect to is secure. Default is insecure.
+    -h, --help                  Print this help menu
   ```
 
 2. Start one server on port 3000 and client listening to 5000.
