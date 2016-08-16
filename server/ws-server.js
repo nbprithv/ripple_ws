@@ -45,10 +45,11 @@ Server = (function () {
                 console.log('Server '+port+' received: "%s"', message);
             });
 
-            self.ws.send('Server at '+port+' says: Hello');
+            self.ws.send('Server at '+port+' says: Hello', function () {});
 
             setInterval(function(){
-                self.ws.send('Server at '+port+' says: Hello');
+                // If a callback isn't specified, and a client gets killed without calling the close function the server crashes.
+                self.ws.send('Server at '+port+' says: Hello', function(){});
             }, 2000);
 
             cb(self);
