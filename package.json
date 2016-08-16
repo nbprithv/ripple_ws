@@ -16,6 +16,9 @@
     ]
   },
   "devDependencies": {
-    "eslint": "*"
+    "eslint": "*",
+    "command-line-args": "^3.0.1",
+    "command-line-usage": "^3.0.3",
+    "ws": "^1.1.1"
   }
 }
